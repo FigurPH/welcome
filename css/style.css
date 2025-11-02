@@ -1,16 +1,16 @@
  .sidebar-17 {
-            width: 17%;
-        }
+    width: 17%;
+}
 
-        .main-83 {
-            /* Calcula o restante: 100% - 17% = 83% */
-            width: 83%; 
-        }
+.main-83 {
+    /* Calcula o restante: 100% - 17% = 83% */
+    width: 83%; 
+}
 
-        .h-85vh {
-            /* * Usamos 'vh' (viewport height) para garantir que 65% seja
-             * em relação à altura da janela do navegador, o que funciona bem
-             * para elementos de layout principal.
-             */
-            height: 85vh; 
-        }
+.h-85vh {
+    /* * Usamos 'vh' (viewport height) para garantir que 65% seja
+        * em relação à altura da janela do navegador, o que funciona bem
+        * para elementos de layout principal.
+        */
+    height: 85vh; 
+}
