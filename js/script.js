@@ -3,7 +3,7 @@ async function getPage(page) {
         page == 'langDropdown'
     ) return;
     try {
-        const res = (await fetch(`src/${page}.html`));
+        const res = (await fetch(`src/${page}.html`, { cache: 'no-store' })); //cache: no-store para ignorar o cache, carrega sempre novamente a página
         if (!res.ok) throw new Error(`Erro ao carregar ${page}`);
         const html = await res.text();
         document.getElementById('content').innerHTML = html;
