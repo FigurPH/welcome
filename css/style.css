@@ -1,16 +1,42 @@
- .sidebar-17 {
-    width: 17%;
+.text-justify {
+    text-align: justify !important;
+    text-justify: inter-word;
 }
 
+.custom-container {
+    height: 85vh; /* 85% da altura da viewport */
+}
+
+/* Define a altura do container principal */
+.custom-container {
+    height: 85vh; /* 85% da altura da viewport */
+}
+
+/* Define a largura da sidebar e garante que ela não cresça */
+.sidebar-17 {
+    flex: 0 0 17%;
+    /* Ajuste de altura para que a sidebar preencha o container */
+    height: 100%;
+}
+
+/* Define a largura do conteúdo principal e permite que ele preencha o restante */
 .main-83 {
-    /* Calcula o restante: 100% - 17% = 83% */
-    width: 83%; 
+    flex: 1 1 83%;
+    padding: 0; /* Removendo padding padrão para melhor controle */
+    /* IMPORTANTE: Aqui definimos a altura máxima e ativamos o scroll para a área espiada */
+    max-height: 85vh; /* Deve ser igual ou menor que o container pai */
+    overflow-y: scroll; /* Ativa a barra de rolagem vertical */
 }
 
-.h-85vh {
-    /* * Usamos 'vh' (viewport height) para garantir que 65% seja
-        * em relação à altura da janela do navegador, o que funciona bem
-        * para elementos de layout principal.
-        */
-    height: 85vh; 
+/* Estilos adicionais para melhorar a visualização */
+.sidebar-17 a {
+    /* Adiciona o estilo 'active' do Scrollspy manualmente */
+    color: rgba(255, 255, 255, 0.6); /* Cor de link normal */
+    transition: color 0.2s;
+}
+.sidebar-17 a.active {
+    /* Cor do link ativo */
+    color: white !important; 
+    font-weight: bold;
+    text-decoration: underline;
 }
