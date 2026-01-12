@@ -4,27 +4,19 @@
 }
 
 .custom-container {
-    height: 85vh; /* 85% da altura da viewport */
-}
-
-/* Define a altura do container principal */
-.custom-container {
-    height: 85vh; /* 85% da altura da viewport */
+    height: 95vh; /* 85% da altura da viewport */
 }
 
 /* Define a largura da sidebar e garante que ela não cresça */
 .sidebar-17 {
     flex: 0 0 17%;
     /* Ajuste de altura para que a sidebar preencha o container */
-    height: 100% !important;
 }
 
 /* Define a largura do conteúdo principal e permite que ele preencha o restante */
 .main-83 {
-    flex: 1 1 83%;
     padding: 0; /* Removendo padding padrão para melhor controle */
     /* IMPORTANTE: Aqui definimos a altura máxima e ativamos o scroll para a área espiada */
-    max-height: 85vh !important; /* Deve ser igual ou menor que o container pai */
     overflow-y: scroll; /* Ativa a barra de rolagem vertical */
 }
 
@@ -39,4 +31,8 @@
     color: white !important; 
     font-weight: bold;
     text-decoration: underline;
+}
+
+body {
+    height: 100%;
 }

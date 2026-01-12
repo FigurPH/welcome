@@ -1,6 +1,3 @@
-
-
-
 async function getPage(page) {
     try {
         const res = (await fetch(`src/${page}.html`, { cache: 'no-store' })); //cache: no-store para ignorar o cache, carrega sempre novamente a página
@@ -12,7 +9,7 @@ async function getPage(page) {
             
             // Verifique se a função existe antes de chamar
             if (typeof initPage === 'function') {
-                initPage('whoami'); 
+                initPage(page); 
             } else {
                 console.error("Erro: initPage não está definida no escopo global.");
             }
