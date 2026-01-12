@@ -4,12 +4,12 @@
 }
 
 .custom-container {
-    height: 95vh; /* 85% da altura da viewport */
+    height: 85vh; /* 85% da altura da viewport */
 }
 
 /* Define a altura do container principal */
 .custom-container {
-    height: 95vh; /* 85% da altura da viewport */
+    height: 85vh; /* 85% da altura da viewport */
 }
 
 /* Define a largura da sidebar e garante que ela não cresça */
