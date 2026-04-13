@@ -1,1 +1,5 @@
-.idea
+(css/style.css, src/portfolio.html, src/portfolio/gescol.html, src/portfolio/gescol2.html, src/portfolio/jornada.html, src/portfolio/orgulho.html, src/portfolio/pqpython.html, src/skills.html, src/whoami.html - these are all source files (.css, .html) that should not be ignored
+
+No build artifacts, dependencies, or temporary files detected in the changes.
+
+(empty - output nothing)
