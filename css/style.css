@@ -3,36 +3,126 @@
     text-justify: inter-word;
 }
 
+/* Container principal com altura responsiva */
 .custom-container {
-    height: 95vh; /* 85% da altura da viewport */
+    min-height: calc(100vh - 56px); /* Altura da viewport menos a navbar */
+    display: flex;
+    flex-direction: column;
 }
 
-/* Define a largura da sidebar e garante que ela não cresça */
-.sidebar-17 {
-    flex: 0 0 17%;
-    /* Ajuste de altura para que a sidebar preencha o container */
+/* Layout sidebar + conteúdo principal */
+.content-layout {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
 }
 
-/* Define a largura do conteúdo principal e permite que ele preencha o restante */
-.main-83 {
-    padding: 0; /* Removendo padding padrão para melhor controle */
-    /* IMPORTANTE: Aqui definimos a altura máxima e ativamos o scroll para a área espiada */
-    overflow-y: scroll; /* Ativa a barra de rolagem vertical */
+/* Sidebar - responsiva */
+.sidebar {
+    flex: 0 0 auto;
+    width: 250px; /* Largura fixa para desktop */
+    overflow-y: auto;
+    transition: all 0.3s ease;
 }
 
-/* Estilos adicionais para melhorar a visualização */
-.sidebar-17 a {
-    /* Adiciona o estilo 'active' do Scrollspy manualmente */
-    color: rgba(255, 255, 255, 0.6); /* Cor de link normal */
+/* Conteúdo principal - responsivo */
+.main-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+    max-width: 100%;
+}
+
+/* Estilos dos links da sidebar */
+.sidebar a {
+    color: rgba(255, 255, 255, 0.6);
     transition: color 0.2s;
+    display: block;
+    padding: 0.5rem 0;
 }
-.sidebar-17 a.active {
-    /* Cor do link ativo */
-    color: white !important; 
+
+.sidebar a:hover {
+    color: white;
+}
+
+.sidebar a.active {
+    color: white !important;
     font-weight: bold;
     text-decoration: underline;
 }
 
+/* Body com altura total */
 body {
-    height: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Media Queries para responsividade */
+@media (max-width: 768px) {
+    /* Em tablets e mobile, o layout vira coluna */
+    .content-layout {
+        flex-direction: column;
+    }
+    
+    /* Sidebar ocupa largura total no topo */
+    .sidebar {
+        width: 100%;
+        max-height: 40vh;
+        overflow-y: auto;
+        border-bottom: 2px solid #dee2e6;
+    }
+    
+    /* Conteúdo principal abaixo da sidebar */
+    .main-content {
+        max-height: calc(100vh - 56px - 40vh);
+        overflow-y: auto;
+    }
+    
+    /* Ajuste de padding para mobile */
+    .main-content {
+        padding: 0.75rem;
+    }
+    
+    /* Títulos menores em mobile */
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    /* Em celulares pequenos */
+    .sidebar {
+        max-height: 35vh;
+    }
+    
+    .main-content {
+        max-height: calc(100vh - 56px - 35vh);
+    }
+    
+    /* Navbar brand menor */
+    .navbar-brand {
+        font-size: 1rem;
+    }
+    
+    /* Links da navbar menores */
+    .nav-link {
+        font-size: 0.9rem;
+    }
+}
+
+/* Utilitário para altura da viewport */
+.vh-95 {
+    height: 95vh;
+}
+
+@media (max-width: 768px) {
+    .vh-95 {
+        height: auto;
+        min-height: calc(100vh - 56px);
+    }
 }
