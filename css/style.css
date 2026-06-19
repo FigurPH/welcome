@@ -10,11 +10,21 @@
     flex-direction: column;
 }
 
+/* Wrapper principal com altura responsiva e compensação do navbar */
+.main-wrapper {
+    margin-top: 56px; /* Altura da navbar */
+    height: calc(100vh - 56px);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
 /* Layout sidebar + conteúdo principal */
 .content-layout {
     display: flex;
     flex: 1;
     overflow: hidden;
+    height: 100%;
 }
 
 /* Sidebar - responsiva */
@@ -51,36 +61,51 @@
     text-decoration: underline;
 }
 
-/* Body com altura total */
+/* Body com altura total e sem barra de rolagem principal no desktop */
 body {
-    min-height: 100vh;
+    height: 100vh;
+    margin: 0;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 /* Media Queries para responsividade */
 @media (max-width: 768px) {
+    /* Permitir rolagem natural na tela em mobile */
+    body {
+        height: auto;
+        min-height: 100vh;
+        overflow-y: auto;
+    }
+    
+    .main-wrapper {
+        margin-top: 56px;
+        height: auto;
+        min-height: calc(100vh - 56px);
+    }
+
     /* Em tablets e mobile, o layout vira coluna */
     .content-layout {
         flex-direction: column;
+        height: auto;
+        overflow: visible;
     }
     
     /* Sidebar ocupa largura total no topo */
     .sidebar {
         width: 100%;
-        max-height: 40vh;
-        overflow-y: auto;
+        height: auto;
+        max-height: none;
+        overflow-y: visible;
         border-bottom: 2px solid #dee2e6;
     }
     
     /* Conteúdo principal abaixo da sidebar */
     .main-content {
-        max-height: calc(100vh - 56px - 40vh);
-        overflow-y: auto;
-    }
-    
-    /* Ajuste de padding para mobile */
-    .main-content {
+        height: auto;
+        max-height: none;
+        overflow-y: visible;
         padding: 0.75rem;
     }
     
@@ -95,15 +120,6 @@ body {
 }
 
 @media (max-width: 576px) {
-    /* Em celulares pequenos */
-    .sidebar {
-        max-height: 35vh;
-    }
-    
-    .main-content {
-        max-height: calc(100vh - 56px - 35vh);
-    }
-    
     /* Navbar brand menor */
     .navbar-brand {
         font-size: 1rem;
@@ -115,9 +131,9 @@ body {
     }
 }
 
-/* Utilitário para altura da viewport */
+/* Utilitário para altura da viewport - redefinido para ocupar 100% da altura do wrapper */
 .vh-95 {
-    height: 95vh;
+    height: 100%;
 }
 
 @media (max-width: 768px) {
